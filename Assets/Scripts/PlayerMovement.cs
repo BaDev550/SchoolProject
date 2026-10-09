@@ -1,6 +1,5 @@
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,8 +14,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        InputAction moveAction = InputSystem.actions.FindAction("Move");
-
         Vector2 movementAxis = new Vector2(0.0f, 0.0f);
         movementAxis.x = Input.GetAxisRaw("Horizontal");
         movementAxis.y = Input.GetAxisRaw("Vertical");
