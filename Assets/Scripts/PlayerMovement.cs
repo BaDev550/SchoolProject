@@ -1,26 +1,22 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
-    public Rigidbody rb;
-    public float speed = 15.0f;
+public class PlayerMovement : MonoBehaviour {
+    public float _speed = 15.0f;
+    private Rigidbody _rb;
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();    
+    void Start() {
+        _rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         Vector2 movementAxis = new Vector2(0.0f, 0.0f);
         movementAxis.x = Input.GetAxisRaw("Horizontal");
         movementAxis.y = Input.GetAxisRaw("Vertical");
         Vector2 direction = new Vector2(0.0f, 0.0f);
 
-        direction.x += (movementAxis.x * speed) * Time.deltaTime;
-        direction.y += (movementAxis.y * speed) * Time.deltaTime;
-        rb.AddForce(new Vector3(direction.x, 0.0f, direction.y));
+        direction.x += (movementAxis.x * _speed) * Time.deltaTime;
+        direction.y += (movementAxis.y * _speed) * Time.deltaTime;
+        _rb.AddForce(new Vector3(direction.x, 0.0f, direction.y));
     }
 }
